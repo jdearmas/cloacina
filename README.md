@@ -13,7 +13,7 @@ preprocessing.
 
 #### Shiny
 Install the R-shiny package in R-Studio
-'''install.packages("shiny")'''
+`install.packages("shiny")`
 
 
 '''
