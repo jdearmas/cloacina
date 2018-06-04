@@ -11,10 +11,30 @@ preprocessing.
 
 ### Prequistes 
 
-#### Shiny
+#### ggplot2
+##### Install
 Install the R-shiny package in R-Studio
+
+```
+install.packages("ggplot2")
+```
+##### Check Installation
+```
+library(ggplot2)
+sessionInfo()
+```
+
+#### Shiny
+##### Install
+Install the R-shiny package in R-Studio
+
 ```
 install.packages("shiny")
+```
+##### Check Installation
+```
+library(shiny)
+runExample("01_hello")
 ```
 
 
@@ -38,6 +58,3 @@ SPECIAL NOTES:
 ```
 
 ## Deliverables
-
-* Shinyapps.io - https://coursera-tjf.shinyapps.io/ddp_shiny/
-* Slidify presentation - http://coursera-tjf.github.io/ddp_shiny/
