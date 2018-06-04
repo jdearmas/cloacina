@@ -1,7 +1,7 @@
 # Cloacina
 ## A pipeline from SQL-housed data to R-shinf interactive-figures for data exploration 
 <p align="center">
-  <img src="https://github.com/jdearmas/cloacina/blob/master/doc/figures/high-level/Slide2.JPG">
+  <img src="https://github.com/jdearmas/cloacina/blob/master/doc/figures/high-level/high-level.jpg">
 </p>
 
 Purpose - Create a pipeline from SQL-housed data to R-shiny interactive-figures
