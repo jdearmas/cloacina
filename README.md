@@ -11,6 +11,14 @@ preprocessing.
 
 ### Prequistes 
 
+#### RPostgreSQL
+##### Install
+Install the package in R-Studio
+
+```
+install.packages("RPostgreSQL")
+```
+
 #### ggplot2
 ##### Install
 Install the R-shiny package in R-Studio
