@@ -1,24 +1,47 @@
 library(shiny)
 
+
+
+# Query Commands
+prefix <- 'select * from';
+
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
-  # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Explore Database"),
   
-  # Sidebar with a slider input for number of bins 
   sidebarLayout(
-    sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
-                   min = 1,
-                   max = 50,
-                   value = 30)
+    sidebarPanel("Inputs",
+
+      # Databases                 
+      textInput("database",
+                "Databases",
+                value = "test_cloacina_db"),
+
+      # Tables
+      #db_char <- reactive({input$database}),
+      selectInput("tables",
+                  "Tables",
+                  choices = c("test",
+                              "anything")
+      ),
+      
+      
+      # Tables
+      selectInput("tables",
+        "Tables",
+        choices = c("test","dev","prod")
+      )
     ),
-    
-    # Show a plot of the generated distribution
-    mainPanel(
-       plotOutput("distPlot")
+  
+    mainPanel("Results",
+    plotOutput("coolplot"),
+    tableOutput("results")
+              
     )
-  )
+  )  
 ))
+
+server <- function(input,output) {}
+
+

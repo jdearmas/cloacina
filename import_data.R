@@ -1,5 +1,9 @@
 import_data <- function(query){
-  # Libraries
+# Resources
+# https://www.r-bloggers.com/getting-started-with-postgresql-in-r/
+
+
+# Libraries
   require("RPostgreSQL")
   library(RPostgreSQL)
   
@@ -27,10 +31,9 @@ import_data <- function(query){
   dbExistsTable(con, "test_cloacina_table" )
   # TRUE
   
-  # Create Database Table into Dataframe 
-  df <- dbReadTable(con,"test_cloacina_table")
-  df <- dbGetQuery(con,query)  
-
+  # Output 
+  output <- eval(parse(text=query))
   
-  return(df)
+  
+  return(output)
 }
