@@ -31,6 +31,7 @@ import_data <- function(query){
   dbExistsTable(con, "test_cloacina_table" )
   # TRUE
   
+  dbListTables(con)
   # Output 
   output <- eval(parse(text=query))
   

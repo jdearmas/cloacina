@@ -1,6 +1,5 @@
+# Libraries
 library(shiny)
-
-
 
 # Query Commands
 prefix <- 'select * from';
@@ -36,8 +35,8 @@ shinyUI(fluidPage(
   
     mainPanel("Results",
     plotOutput("coolplot"),
-    tableOutput("results")
-              
+    uiOutput("database"),
+    uiOutput("tables")
     )
   )  
 ))
