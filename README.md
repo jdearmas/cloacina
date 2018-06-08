@@ -21,6 +21,12 @@ install.packages("ggplot2")
 install.packages("shiny")
 ```
 
+## Built With
+* [Vim](https://www.vim.org/) - The text editor used
+* [Wisdow](http://www.google.com) - The search engine used
+* [Family](https://stackoverflow.com) - The alt-tab winner
+* [Dvorak](https://en.wikipedia.org/wiki/Dvorak_Simplified_Keyboard) - Keyboard
+
 ## Authors
 
 * **Timothy Fawcett** - *Initial work* - [tfawcett](https://github.com/coursera-tjf)
@@ -28,7 +34,6 @@ install.packages("shiny")
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE) file for details
 
 ## Acknowledgements
 
