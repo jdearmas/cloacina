@@ -11,7 +11,7 @@ preprocessing.
 
 ### Prequistes 
 
-#### RPostgreSQL
+#### R Packages
 ##### Install
 Install the package in R-Studio
 
