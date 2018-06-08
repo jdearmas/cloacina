@@ -17,52 +17,9 @@ Install the package in R-Studio
 
 ```
 install.packages("RPostgreSQL")
-```
-
-#### ggplot2
-##### Install
-Install the R-shiny package in R-Studio
-
-```
 install.packages("ggplot2")
-```
-##### Check Installation
-```
-library(ggplot2)
-sessionInfo()
-```
-
-#### Shiny
-##### Install
-Install the R-shiny package in R-Studio
-
-```
 install.packages("shiny")
 ```
-##### Check Installation
-```
-library(shiny)
-runExample("01_hello")
-```
 
-
-### Installation 
-
-### Dataset - downloaded from [here](https://www.kaggle.com/c/titanic/data)
-
-Data already broken up into separate training and testing data sets.  Due to
-Kaggle requiring a click to download data, data also uploaded to this GitHub
-repo so can be downloaded into R directly at the launch of this Shiny app.
-
-* [train.csv](data/train.csv)
-* [test.csv](data/test.csv)
-
-#### Data Description
-
-```
-VARIABLE DESCRIPTIONS:
-
-SPECIAL NOTES:
-```
 
 ## Deliverables
