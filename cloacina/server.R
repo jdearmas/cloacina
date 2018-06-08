@@ -18,12 +18,6 @@ shinyServer(function(input, output) {
 	import_data("dbListTables(con)")
 	})
 
-  #output$tables <- renderUI({
-   # selectInput("tables",
-    #            "Tabels",
-     #           as.list(c(output$table_query,
-      #                    "NULL")))
-  #})
   
   output$tables <- renderUI({
   	selectInput("table","Tabels",as.list(c(import_data("dbListTables(con)"),
