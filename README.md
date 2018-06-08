@@ -21,5 +21,16 @@ install.packages("ggplot2")
 install.packages("shiny")
 ```
 
+## Authors
 
-## Deliverables
+* **Timothy Fawcett** - *Initial work* - [tfawcett](https://github.com/coursera-tjf)
+* **John De Armas** - *PostgreSQL Import Data* - [jdearmas](https://github.com/jdearmas)
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE.md](LICENSE) file for details
+
+## Acknowledgements
+
+Dr. Timothy Fawcett for his guidance and support.
+
