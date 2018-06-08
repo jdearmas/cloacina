@@ -1,5 +1,5 @@
 # Cloacina
-A pipeline from SQL-housed data to R-shinf interactive-figures for data exploration 
+A pipeline from SQL-housed data to R-shiny interactive-figures for data exploration 
 <p align="center">
   <img src="https://github.com/jdearmas/cloacina/blob/master/doc/figures/high-level/high-level.jpg">
 </p>
@@ -11,58 +11,31 @@ preprocessing.
 
 ### Prequistes 
 
-#### RPostgreSQL
+#### R Packages
 ##### Install
 Install the package in R-Studio
 
 ```
 install.packages("RPostgreSQL")
-```
-
-#### ggplot2
-##### Install
-Install the R-shiny package in R-Studio
-
-```
 install.packages("ggplot2")
-```
-##### Check Installation
-```
-library(ggplot2)
-sessionInfo()
-```
-
-#### Shiny
-##### Install
-Install the R-shiny package in R-Studio
-
-```
 install.packages("shiny")
 ```
-##### Check Installation
-```
-library(shiny)
-runExample("01_hello")
-```
+
+## Built With
+* [Vim](https://www.vim.org/) - The text editor used
+* [Wisdow](http://www.google.com) - The search engine used
+* [Family](https://stackoverflow.com) - The alt-tab winner
+* [Dvorak](https://en.wikipedia.org/wiki/Dvorak_Simplified_Keyboard) - Keyboard
+
+## Authors
+
+* **Timothy Fawcett** - *Initial work* - [tfawcett](https://github.com/coursera-tjf)
+* **John De Armas** - *PostgreSQL Import Data* - [jdearmas](https://github.com/jdearmas)
+
+## License
 
 
-### Installation 
+## Acknowledgements
 
-### Dataset - downloaded from [here](https://www.kaggle.com/c/titanic/data)
+Dr. Timothy Fawcett for his guidance and support.
 
-Data already broken up into separate training and testing data sets.  Due to
-Kaggle requiring a click to download data, data also uploaded to this GitHub
-repo so can be downloaded into R directly at the launch of this Shiny app.
-
-* [train.csv](data/train.csv)
-* [test.csv](data/test.csv)
-
-#### Data Description
-
-```
-VARIABLE DESCRIPTIONS:
-
-SPECIAL NOTES:
-```
-
-## Deliverables
