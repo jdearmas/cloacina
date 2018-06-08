@@ -8,7 +8,7 @@ prefix <- 'select * from';
 shinyUI(fluidPage(
   navbarPage('',
     titlePanel("Cloacina"),
-      tabPanel("Explore Database",
+      tabPanel("0. Explore Database",
         fluidPage(
           sidebarLayout(
             sidebarPanel("Inputs",
@@ -32,7 +32,6 @@ shinyUI(fluidPage(
             ),
       
             mainPanel("Results",
-            plotOutput("coolplot"),
             uiOutput("database"),
             uiOutput("query"),
             textOutput("data_str"),
@@ -40,7 +39,9 @@ shinyUI(fluidPage(
             )
           )  
         )
-      )
+      ),
+     
+      tabPanel("1. Format Data")
     )
   )
 )

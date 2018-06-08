@@ -9,21 +9,19 @@ library(ggplot2)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-   
-  output$coolplot <- renderPlot({
-    plot(rnorm(100))
-  })
 
-  output$tables_query <- renderUI({
-	import_data("dbListTables(con)")
-	})
 
-  
+  #output$tables <- renderUI({
+  #	selectInput("table","Tabels",as.list(c(import_data("dbListTables(con)"),
+  #	                                        "NULL")))
+	#})
+
   output$tables <- renderUI({
-  	selectInput("table","Tabels",as.list(c(import_data("dbListTables(con)"),
-  	                                        "NULL")))
-	})
+    checkboxGroupInput("table","Tabels",as.list(c(import_data("dbListTables(con)"),
+                                           "NULL")))
+  })
   
+    
   output$data_str <- renderText({
     full_query <- paste("dbGetQuery",
                               "(con,'",
