@@ -18,10 +18,35 @@ shinyServer(function(input, output) {
 	import_data("dbListTables(con)")
 	})
 
+  #output$tables <- renderUI({
+   # selectInput("tables",
+    #            "Tabels",
+     #           as.list(c(output$table_query,
+      #                    "NULL")))
+  #})
+  
   output$tables <- renderUI({
-  	selectInput("tables","Tabels",as.list(c(import_data("dbListTables(con)"),
+  	selectInput("table","Tabels",as.list(c(import_data("dbListTables(con)"),
   	                                        "NULL")))
 	})
+  
+  output$data_str <- renderText({
+    full_query <- paste("dbGetQuery",
+                              "(con,'",
+                              input$prequery,
+                              input$table,
+                              input$postquery,
+                              "')")
+    })
+  
+  output$data <- renderTable({
+    import_data(paste("dbGetQuery",
+                      "(con,'",
+                      input$prequery,
+                      input$table,
+                      "')"))
+  })
+  
 })
 
 

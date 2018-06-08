@@ -15,28 +15,33 @@ shinyUI(fluidPage(
       # Databases                 
       textInput("database",
                 "Databases",
-                value = "test_cloacina_db"),
-
+                value = "test_cloacina_db"
+                ),
       # Tables
-      #db_char <- reactive({input$database}),
-      selectInput("tables",
-                  "Tables",
-                  choices = c("test",
-                              "anything")
-      ),
+      uiOutput("tables"
+               ),
+      
+      # Pre-Table Query Command
+      textInput("prequery",
+                "Pre-Table Query Command",
+                value="select * from"
+                ),
+      
+      # Post-Table Query Command
+      textInput("postquery",
+                "Post-Table Query Command",
+                value="limit 1"
+                )
       
       
-      # Tables
-      selectInput("tables",
-        "Tables",
-        choices = c("test","dev","prod")
-      )
     ),
   
     mainPanel("Results",
     plotOutput("coolplot"),
     uiOutput("database"),
-    uiOutput("tables")
+    uiOutput("query"),
+    textOutput("data_str"),
+    uiOutput("data")
     )
   )  
 ))
