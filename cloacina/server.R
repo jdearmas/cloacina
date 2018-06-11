@@ -1,5 +1,9 @@
 # some libs for shinyapps to deploy correctly
 library(shiny)
+library(DT)
+
+# variables
+maxTables <- 5;
 
 # functions
 connect_to_db <- function(){
@@ -55,7 +59,7 @@ import_data <- function(con,query){
 
 getwd()
 conn <- connect_to_db();
-queryy <- "dbGetQuery(con,'select * from test_cloacina_table')"
+queryy <- "dbGetQuery(con,'select * from test_cloacina_table_1')"
 
 output <- import_data(con=conn,query=queryy)
 
@@ -65,6 +69,10 @@ library(ggplot2)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
+  output$database <- renderText({
+    input$database
+  })
+  
   output$tables <- renderUI({
     checkboxGroupInput("table",
                        "Tabels",
@@ -76,46 +84,44 @@ shinyServer(function(input, output) {
 
 
   output$number_of_tables <- renderText({
-    paste("Number of Tables Selected: ", length(input$table))
+    paste("Number of Tables Selected: ", input$table[2])
     
   })
   
   output$list_of_queries <- renderUI({
-    lapply(input$table,
-      function(table)
-        {
-          textInput(inputId = "list_of_queries",
-                    label = paste("Query for table: ",
-                                  table),
-                    value = paste0("select * from ",
-                                  table,
-                                  " limit 1")
-                    )
-        }
-       )
-  })
-
-  output$data <- renderUI({
-    lapply(1:length(input$table), 
-           function(n){
-             renderUI({
-               import_data(conn,
-                           query = paste("dbGetQuery",
-                                         "(con,'",
-                                         input$list_of_queries[n],
-                                         "')"
-                                 )
-                           )
-              })
-            }
+    lapply(X = 1:2,
+           FUN = function(i)
+           {
+             textInput(inputId = paste0("query",i),
+                       label = paste("Query for table: ",
+                                     input$table[i]),
+                       value = paste0("select * from ",
+                                      input$table[i],
+                                      " limit 1")
+             )
+           }
     )
   })
-})
+   
+ 
+  output$query <- renderText({
+    length(input$query1)
+  }) 
 
-#  output$data <- renderTable({
-#    import_data(conn,
-#                paste("dbGetQuery",
-#                      "(con,'",
-#                      input$list_of_queries,
-#                      "')"))
-#  })
+  observe(
+    lapply(1:2,
+           function(i){
+           output[[paste0("datatable_",i)]] <-
+             DT::renderDataTable(
+               import_data(conn,
+                           query = paste0("dbGetQuery(",
+                                          "con,'",
+                                           eval(parse(text=paste0("input$query",i))),
+                                          "')")
+                           )
+            )
+            }
+          )
+  )
+  
+})

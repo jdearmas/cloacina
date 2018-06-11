@@ -28,7 +28,14 @@ shinyUI(fluidPage(
            
             mainPanel("Results",
             uiOutput("database"),
-            uiOutput("data")
+            uiOutput("query_ids"),
+            lapply(1:2,
+                                function(i){
+                                 DT::dataTableOutput(paste0("datatable_",i)) 
+                                }
+                              ),
+            textOutput("query"),
+            dataTableOutput("dt")
             )
           )  
         )
