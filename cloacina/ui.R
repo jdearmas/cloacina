@@ -19,22 +19,15 @@ shinyUI(fluidPage(
                       value = "test_cloacina_db"),
             # Tables
             uiOutput("tables"),
-      
-            # Pre-Table Query Command
-            textInput("prequery",
-                      "Pre-Table Query Command",
-                      value="select * from"),
-      
-            # Post-Table Query Command
-            textInput("postquery",
-                      "Post-Table Query Command",
-                      value="limit 1")
+            
+            # List of Queries
+            textOutput("number_of_tables"),
+            uiOutput("list_of_queries")
+            
             ),
-      
+           
             mainPanel("Results",
             uiOutput("database"),
-            uiOutput("query"),
-            textOutput("data_str"),
             uiOutput("data")
             )
           )  

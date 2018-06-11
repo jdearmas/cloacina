@@ -19,6 +19,8 @@ Install the package in R-Studio
 install.packages("RPostgreSQL")
 install.packages("ggplot2")
 install.packages("shiny")
+install.packages("DT")
+
 ```
 
 ## Built With
