@@ -8,12 +8,15 @@ prefix <- 'select * from';
 shinyUI(fluidPage(
   navbarPage('',
     titlePanel("Cloacina"),
-      tabPanel("0. Explore Database",
+      tabPanel("0. Login to PostgreSQL"),
+      tabPanel("1. Explore Database",
         fluidPage(
           sidebarLayout(
-            sidebarPanel("Inputs",
+            sidebarPanel(
+              actionButton("save_inputs","Save Inputs"),
+              titlePanel("Inputs"),
 
-            # Databases                 
+              # Databases                 
             textInput("database",
                       "Databases",
                       value = "test_cloacina_db"),
@@ -26,22 +29,22 @@ shinyUI(fluidPage(
             
             ),
            
-            mainPanel("Results",
-            uiOutput("database"),
-            uiOutput("query_ids"),
-            lapply(1:2,
-                                function(i){
-                                 DT::dataTableOutput(paste0("datatable_",i)) 
-                                }
-                              ),
-            textOutput("query"),
-            dataTableOutput("dt")
+            mainPanel(
+              actionButton("save_results","Save Results"),
+              titlePanel("Data Viewer"),
+              lapply(1:2,
+                     function(i){
+                       h4(paste(i))
+                       DT::dataTableOutput(paste0("datatable_",i)) 
+                     }
+                    )
             )
           )  
         )
       ),
      
-      tabPanel("1. Format Data")
+      tabPanel("2. Format Data"),
+      tabPanel("3. Process Data")
     )
   )
 )

@@ -57,6 +57,9 @@ import_data <- function(con,query){
   return(output)
 }
 
+humanTime <- function() format(Sys.time(), "%Y%m%d-%H%M%OS")
+
+
 getwd()
 conn <- connect_to_db();
 queryy <- "dbGetQuery(con,'select * from test_cloacina_table_1')"
@@ -69,6 +72,10 @@ library(ggplot2)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
 
+  observeEvent(input$save_inputs, {
+    saveData(formData())
+  })
+  
   output$database <- renderText({
     input$database
   })
