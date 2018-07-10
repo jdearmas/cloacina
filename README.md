@@ -20,7 +20,7 @@ install.packages("RPostgreSQL")
 install.packages("ggplot2")
 install.packages("shiny")
 install.packages("DT")
-
+install.packages("data.table") 
 ```
 
 ## Built With
